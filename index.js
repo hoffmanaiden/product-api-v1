@@ -5,8 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 // Next Steps
-// 1. setup & connect mongoDB
-// 2. modularize code
+// 1. modularize code
 
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vkt8n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
