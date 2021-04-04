@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 // 2. modularize code
 
 mongoose.connect(
-  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.cb67g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vkt8n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const db = mongoose.connection;
