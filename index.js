@@ -44,6 +44,7 @@ const typeDefs = gql`
   }
   type Mutation {
     addProduct(product: ProductInput): [Product]
+    updateProduct(product: ProductInput) : [Product]
   }
 `;
 
@@ -82,6 +83,20 @@ const resolvers = {
       }catch(err){
         console.log('error', err);
       }
+    },
+    updateProduct: async (obj, args, context, info) => {
+      try{
+        console.log(args)
+        const foundProduct = await Product.findById(args.product.id);
+        // return foundProduct
+        await foundProduct.updateOne({
+          ...args.product
+        })
+        const updatedProd = await Product.find();
+        return updatedProd;
+      } catch(err){
+        console.log('error', err)
+      }
     }
   }
 }
@@ -110,5 +125,3 @@ db.once('open', function () {
   }).then(({url}) => { console.log(`Server running on ${url}`)})  
 })
 
-// Send DB Object to --> gql for CRUD
-module.exports = {Product}
